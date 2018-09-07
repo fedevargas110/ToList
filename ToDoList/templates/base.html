@@ -13,8 +13,18 @@
    <title> ToDoList </title>
   </head>
   <body>
+    <form action="{% url 'post' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" name="button">send</button>
+    </form>
     {% for post in list %}
-      <p> {{post.fecha}} {{ post.texto }} </p>
+      <p>
+        {{ post.fecha }}
+        {{ post.texto }}
+        <a href="">borrar</a>
+        <a href="">archivar</a>
+      </p>
     {% endfor %}
   </body>
 </html>
