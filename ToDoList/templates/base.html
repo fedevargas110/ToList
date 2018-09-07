@@ -13,5 +13,8 @@
    <title> ToDoList </title>
   </head>
   <body>
+    {% for post in list %}
+      <p> {{ post.texto }}
+    {% endfor %}
   </body>
 </html>

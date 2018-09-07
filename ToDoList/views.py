@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 
 def mostrar(request):
-    list = Lista.objects.all().filter(user__username='admin').count()
-    return render(request, "base.html")
+    list = Lista.objects.all()
+    return render(request, "base.html", {'list': list})
 
 # Create your views here.
