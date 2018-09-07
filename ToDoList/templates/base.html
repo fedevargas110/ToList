@@ -22,7 +22,7 @@
       <p>
         {{ post.fecha }}
         {{ post.texto }}
-        <a href="">borrar</a>
+        <a href="{% url 'borrar' post.id %}">borrar</a>
         <a href="">archivar</a>
       </p>
     {% endfor %}

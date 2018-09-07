@@ -13,4 +13,12 @@ def post(request):
     post = Lista(texto=texto)
     post.save()
     return redirect("home")
+
+def borrar(request, id):
+    post = Lista.objects.get(pk=id)
+    post.delete()
+    return redirect("home")
+
+def archivar(request):
+    return redirect("second")
 # Create your views here.
