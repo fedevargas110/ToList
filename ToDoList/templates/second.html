@@ -10,23 +10,16 @@
 
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link href="/images/branding/product/ico/googleg_lodp.ico" rel="shortcut icon">
-   <title> ToDoList </title>
+    <title>Archivados</title>
   </head>
   <body>
-    <form action="{% url 'post' %}" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" name="button">send</button>
-    </form>
     {% for post in list %}
-      {% if not post.archivado %}
+      {% if post.archivado %}
         <p>
           {{ post.fecha }}
           {{ post.texto }}
-          <a href="{% url 'borrar' post.id %}">borrar</a>
-          <a href="{% url 'archivar' post.id %}">archivar</a>
         </p>
       {% endif %}
     {% endfor %}
-  </body>
+    </body>
 </html>

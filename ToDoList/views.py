@@ -8,6 +8,11 @@ def mostrar(request):
     ctx = {'list' : list, 'form' : form}
     return render(request, "base.html", ctx)
 
+def archivados(request):
+    list = Lista.objects.order_by('-fecha')
+    ctx = {'list' : list}
+    return render(request, "second.html", ctx)
+
 def post(request):
     texto = request.POST.get("texto")
     post = Lista(texto=texto)
@@ -19,6 +24,9 @@ def borrar(request, id):
     post.delete()
     return redirect("home")
 
-def archivar(request):
-    return redirect("second")
+def archivar(request, id):
+    post = Lista.objects.get(pk=id)
+    post.archivado=True
+    post.save()
+    return redirect("archivados")
 # Create your views here.
