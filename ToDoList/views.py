@@ -24,9 +24,19 @@ def borrar(request, id):
     post.delete()
     return redirect("home")
 
+def delete(request, id):
+    post = Lista.objects.get(pk=id)
+    post.delete()
+    return redirect("archivados")
+
 def archivar(request, id):
     post = Lista.objects.get(pk=id)
     post.archivado=True
     post.save()
     return redirect("archivados")
-# Create your views here.
+
+def restaurar(request, id):
+    post = Lista.objects.get(pk=id)
+    post.archivado=False
+    post.save()
+    return redirect("home")

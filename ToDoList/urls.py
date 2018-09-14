@@ -7,5 +7,7 @@ urlpatterns = [
     path('archivados', views.archivados, name="archivados"),
     path('borrar/<int:id>', views.borrar, name="borrar"),
     path('archivar/<int:id>', views.archivar, name="archivar"),
+    path('delete/<int:id>', views.delete, name="delete"),
+    path('restaurar/<int:id>',views.restaurar, name="restaurar")
 
 ]
